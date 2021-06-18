@@ -24,21 +24,10 @@ INSERT INTO `usuarios_roles` (usuario_id, role_id) VALUES (2, 2);
 INSERT INTO `usuarios_roles` (usuario_id, role_id) VALUES (2, 1);
 
 /* Populate tabla productos */
-INSERT INTO productos (nombre, precio, create_at) VALUES('Panasonic Pantalla LCD', 259990, NOW());
+INSERT INTO productos (nombre, precio, create_at) VALUES('Sony Pantalla LCD', 599, NOW());
 INSERT INTO productos (nombre, precio, create_at) VALUES('Sony Camara digital DSC-W320B', 123490, NOW());
-INSERT INTO productos (nombre, precio, create_at) VALUES('Apple iPod shuffle', 1499990, NOW());
-INSERT INTO productos (nombre, precio, create_at) VALUES('Sony Notebook Z110', 37990, NOW());
-INSERT INTO productos (nombre, precio, create_at) VALUES('Hewlett Packard Multifuncional F2280', 69990, NOW());
-INSERT INTO productos (nombre, precio, create_at) VALUES('Bianchi Bicicleta Aro 26', 69990, NOW());
-INSERT INTO productos (nombre, precio, create_at) VALUES('Mica Comoda 5 Cajones', 299990, NOW());
-
-/* Creamos algunas facturas */
-INSERT INTO facturas (descripcion, observacion, cliente_id, create_at) VALUES('Factura equipos de oficina', null, 1, NOW());
-
-INSERT INTO facturas_items (cantidad, factura_id, producto_id) VALUES(1, 1, 1);
-INSERT INTO facturas_items (cantidad, factura_id, producto_id) VALUES(2, 1, 4);
-INSERT INTO facturas_items (cantidad, factura_id, producto_id) VALUES(1, 1, 5);
-INSERT INTO facturas_items (cantidad, factura_id, producto_id) VALUES(1, 1, 7);
-
-INSERT INTO facturas (descripcion, observacion, cliente_id, create_at) VALUES('Factura Bicicleta', 'Alguna nota importante!', 1, NOW());
-INSERT INTO facturas_items (cantidad, factura_id, producto_id) VALUES(3, 2, 6);
+INSERT INTO productos (nombre, precio, create_at) VALUES('Apple iPhone 11', 1000, NOW());
+INSERT INTO productos (nombre, precio, create_at) VALUES('Sony Notebook Z110', 600, NOW());
+INSERT INTO productos (nombre, precio, create_at) VALUES('Procesador AMD Ryzen 5 5600x', 300, NOW());
+INSERT INTO productos (nombre, precio, create_at) VALUES('Ordenador Intel Nuc 200', 250, NOW());
+INSERT INTO productos (nombre, precio, create_at) VALUES('GeForce RTX 3080 Ti', 1200, NOW());

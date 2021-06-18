@@ -17,7 +17,7 @@
       - SPRING_DATASOURCE_URL=jdbc:mysql://db-mysql:3306/backDB?autoReconnect=true&useSSL=false
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=password
-      - SPRING_JPA_HIBERNATE_DDL_AUTO=create-drop
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=none
     networks:
       - my-network
           
@@ -34,9 +34,9 @@
       - '3306:3306'
     expose:
       - '3306'
-#    volumes:
-#        - ./import/import.sql:/data/application/init.sql
-#    command: --init-file /data/application/init.sql  
+    volumes:
+        - ./import/schema.sql:/docker-entrypoint-initdb.d/1.sql
+        - ./import/data.sql:/docker-entrypoint-initdb.d/2.sql
     networks:
       - my-network
 
