@@ -1,0 +1,52 @@
+ version: '2'
+
+ services:
+  app:
+    image: 'pdawback:latest'
+    ports:
+      - "8080:8080"
+    build:
+      context: .
+    container_name: pdaw_back
+    volumes:
+    - my-vol:/home/uploads
+    restart: on-failure:2
+    depends_on:
+      - db-mysql
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db-mysql:3306/backDB?autoReconnect=true&useSSL=false
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=password
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=create-drop
+    networks:
+      - my-network
+          
+
+  db-mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_DATABASE: 'backDB'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    container_name: db-mysql
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+#    volumes:
+#        - ./import/import.sql:/data/application/init.sql
+#    command: --init-file /data/application/init.sql  
+    networks:
+      - my-network
+
+
+ networks:
+    my-network:
+      name: my-network
+      driver: bridge
+      attachable: true
+
+ volumes:
+    my-vol:
+      name: my-vol
